@@ -24,6 +24,10 @@ the actual statements in the files are controlling.
 * The following source files are in the public domain:
    tar/getdate.c
 
+* The source files in the following directory are freeware and the
+  copyrights are owned by Alexander Roshal:
+   3rdparty/unrar/unrarsrc
+
 * The build files---including Makefiles, configure scripts,
   and auxiliary scripts used as part of the compile process---have
   widely varying licensing terms.  Please check individual files before
