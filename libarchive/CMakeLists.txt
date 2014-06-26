@@ -184,6 +184,15 @@ ADD_LIBRARY(archive_static STATIC ${libarchive_SOURCES} ${include_HEADERS})
 TARGET_LINK_LIBRARIES(archive_static ${ADDITIONAL_LIBS})
 SET_TARGET_PROPERTIES(archive_static PROPERTIES COMPILE_DEFINITIONS
   LIBARCHIVE_STATIC)
+
+# If required, make the "archive" and "archive_static"
+# libraries depend on the "unrar" project which is
+# built in an external CMake project.
+IF(ENABLE_UNRAR)
+  ADD_DEPENDENCIES(archive unrar)
+  ADD_DEPENDENCIES(archive_static unrar)
+ENDIF(ENABLE_UNRAR)
+
 # On Posix systems, libarchive.so and libarchive.a can co-exist.
 IF(NOT WIN32 OR CYGWIN)
   SET_TARGET_PROPERTIES(archive_static PROPERTIES OUTPUT_NAME archive)
